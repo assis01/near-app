@@ -5,6 +5,7 @@ import 'package:near/components/progress.dart';
 import 'package:near/database/dao/cliente_dao.dart';
 import 'package:near/models/cliente.dart';
 import 'package:near/screens/cliente/cadastro_vendedor.dart';
+import 'package:near/screens/fornecedor/homeFornecedor.dart';
 import 'package:near/screens/home/tipo_cliente.dart';
 
 
@@ -43,7 +44,7 @@ class FluxoStale extends State<Fluxo> {
 
                         if (clientes.isNotEmpty && clientes.length > 0) {
                             debugPrint('clientes >>>>>done');
-                            return Principal();
+                            return HomeFornecedor();
                         }
                     }
                      debugPrint('clientes >>>>>default');

@@ -42,8 +42,8 @@ class _CadastroFormState extends State<CadastroForm> {
                   onPressed: () {
                     final String name = _nomeController.text;
            
-                    final Cliente newContact = Cliente(0, name,);
-                    _dao.save(newContact).then((id) => Navigator.of(context).push(MaterialPageRoute(builder : (context) => Fluxo(),)));
+                   // final Cliente newContact = Cliente(0, name,);
+                   // _dao.save(newContact).then((id) => Navigator.of(context).push(MaterialPageRoute(builder : (context) => Fluxo(),)));
                   },
                 ),
               ),

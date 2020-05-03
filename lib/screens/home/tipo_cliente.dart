@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:near/screens/cliente/cadastro_vendedor.dart';
+import 'package:near/screens/cliente/fornecedorScreen.dart';
 
 
 class TipoCliente extends StatefulWidget {
@@ -56,7 +57,7 @@ class _TipoClienteState extends State<TipoCliente> {
   void _showClientePj(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => CadastroForm(),
+        builder: (context) => FornecedorScreen(),
       ),
     );
   }

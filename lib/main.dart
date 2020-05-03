@@ -10,6 +10,10 @@ class NearApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ClienteDao dao = ClienteDao();
+    dao.findAll().then((teste){
+      debugPrint(':::::::::::>>> ${teste}');
+    });
   
     return MaterialApp(
       theme: ThemeData(
