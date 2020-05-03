@@ -1,38 +1,85 @@
 
 
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:near/screens/home/fluxo.dart';
+import 'package:near/screens/cliente/cadastro_vendedor.dart';
 
-class TipoCliente extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-                     body: Padding(
-                                   padding: const EdgeInsets.fromLTRB(120.0,64.0,64.0,64.0),
-                                   child:  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children:<Widget>[
-                                    Visibility(    child:Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Image.asset('images/near_fluxo.png'),
-          ),),
-            Container(
+
+class TipoCliente extends StatefulWidget {
+
+    @override _TipoClienteState createState() => _TipoClienteState();
+
+}
+class _TipoClienteState extends State<TipoCliente> {
+
+    @override Widget build(BuildContext context) {
+        return Scaffold(
+    
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+
+        
+        children: <Widget>[
+          Padding(
+             padding: const EdgeInsets.fromLTRB(128.0,64.0,64.0,64.0),
+            child: Image.asset('images/near_fluxo.png'),
+          ),
+          Container(
             height: 120,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: <Widget>[
-              Padding(
+                _ClienteBotao(
+                  'Vendedor',
+                  Icons.business,
+                  onClick: () => _showClientePj(context),
+                ),
+                _ClienteBotao(
+                  'Cliente',
+                  Icons.people,
+                  onClick: () => _showClientePj(context),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+        
+        
+        
+        
+        
+
+  void _showClientePj(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => CadastroForm(),
+      ),
+    );
+  }
+}
+class _ClienteBotao extends StatelessWidget {
+  final String name;
+  final IconData icon;
+  final Function onClick;
+
+  _ClienteBotao(
+    this.name,
+    this.icon, {
+    @required this.onClick,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
         color: Theme.of(context).primaryColor,
         child: InkWell(
-          onTap: () =>  Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => Fluxo(),
-      ),
-    ),
+          onTap: () => onClick(),
           child: Container(
             padding: EdgeInsets.all(8.0),
             width: 150,
@@ -40,9 +87,13 @@ class TipoCliente extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-               
+                Icon(
+                  icon,
+                  color: Colors.white,
+                  size: 24.0,
+                ),
                 Text(
-                  'teste',
+                  name,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
@@ -53,12 +104,6 @@ class TipoCliente extends StatelessWidget {
           ),
         ),
       ),
-    )
-              ],
-            ),
-          ),])),
-    
     );
   }
-  
 }
